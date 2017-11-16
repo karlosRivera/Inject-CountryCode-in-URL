@@ -27,16 +27,16 @@ namespace InjectCountryCodeInURL
             string rawUrl = HttpContext.Current.Request.RawUrl;
 
             /* check the url has a country code in the title */
-            if (!HttpContext.Current.Request.CurrentExecutionFilePathExtension.Equals(".aspx"))
-            {
-                if (HttpContext.Current.Request.CurrentExecutionFilePathExtension.Equals(string.Empty) && (HttpContext.Current.Request.FilePath.Length == 3))
-                {
-                    //Could be countrycode with no ending slash
-                    rawUrl = rawUrl + "/";
-                }
-                else
-                    return;
-            }
+            //if (!HttpContext.Current.Request.CurrentExecutionFilePathExtension.Equals(".aspx"))
+            //{
+            //    if (HttpContext.Current.Request.CurrentExecutionFilePathExtension.Equals(string.Empty) && (HttpContext.Current.Request.FilePath.Length == 3))
+            //    {
+            //        //Could be countrycode with no ending slash
+            //        rawUrl = rawUrl + "/";
+            //    }
+            //    else
+            //        return;
+            //}
 
             //check for 2 characters wrapped in forward slashes eg. /en/
             string countryCode = Utility.GetCountryCodeFromUrl(rawUrl);
