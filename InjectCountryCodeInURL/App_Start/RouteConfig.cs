@@ -23,12 +23,6 @@ namespace InjectCountryCodeInURL
             //"default-with-countrycode",
             //"{countrycode}",
             //"~/Default.aspx");
-
-            //routes.MapPageRoute(
-            //    "Home",
-            //    "{lang}",
-            //    "~/Default.aspx?country={lang}"
-            //);
         }
     }
 }

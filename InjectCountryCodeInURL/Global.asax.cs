@@ -18,7 +18,7 @@ namespace InjectCountryCodeInURL
         void Application_Start(object sender, EventArgs e)
         {
             // Code that runs on application startup
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            //RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
@@ -26,7 +26,7 @@ namespace InjectCountryCodeInURL
         {
             string rawUrl = HttpContext.Current.Request.RawUrl;
 
-            /* check the url has a country code in the title */
+            ///* check the url has a country code in the title */
             //if (!HttpContext.Current.Request.CurrentExecutionFilePathExtension.Equals(".aspx"))
             //{
             //    if (HttpContext.Current.Request.CurrentExecutionFilePathExtension.Equals(string.Empty) && (HttpContext.Current.Request.FilePath.Length == 3))
@@ -37,6 +37,7 @@ namespace InjectCountryCodeInURL
             //    else
             //        return;
             //}
+
 
             //check for 2 characters wrapped in forward slashes eg. /en/
             string countryCode = Utility.GetCountryCodeFromUrl(rawUrl);
@@ -81,6 +82,20 @@ namespace InjectCountryCodeInURL
             {
                 HttpContext.Current.Response.RedirectPermanent(string.Format("/{0}/index.aspx", countryCode.ToLower()));
             }
+            //else
+            //{
+            //    if (HttpContext.Current.Request.FilePath != "/")
+            //    {
+            //        var reqUrl = HttpContext.Current.Request.FilePath;
+            //        if (HttpContext.Current.Request.FilePath.StartsWith("/"))
+            //        {
+            //            reqUrl = HttpContext.Current.Request.FilePath.Substring(1,HttpContext.Current.Request.FilePath.Length-1);
+            //        }
+
+            //        HttpContext.Current.Response.RedirectPermanent(string.Format("/{0}/{1}", countryCode.ToLower(), reqUrl));
+            //        return;
+            //    }
+            //}
 
             /* set the default cutlure */
             Utility.SetCountry(bbaCulture);
