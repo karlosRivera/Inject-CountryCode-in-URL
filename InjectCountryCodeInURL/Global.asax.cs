@@ -18,7 +18,7 @@ namespace InjectCountryCodeInURL
         void Application_Start(object sender, EventArgs e)
         {
             // Code that runs on application startup
-            //RouteConfig.RegisterRoutes(RouteTable.Routes);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
@@ -75,27 +75,13 @@ namespace InjectCountryCodeInURL
 
             if (bbaCulture == null || string.IsNullOrEmpty(bbaCulture.ThreeDigitISORegionCode))
             {
-                HttpContext.Current.Response.RedirectPermanent(string.Format("/{0}/index.aspx", SiteGlobalization.DefaultCulture.TwoDigitISORegionCode.ToLower()));
+                HttpContext.Current.Response.RedirectPermanent(string.Format("/{0}/default.aspx", SiteGlobalization.DefaultCulture.TwoDigitISORegionCode.ToLower()));
             }
 
             if (HttpContext.Current.Request.FilePath.EndsWith("/" + countryCode))
             {
-                HttpContext.Current.Response.RedirectPermanent(string.Format("/{0}/index.aspx", countryCode.ToLower()));
+                HttpContext.Current.Response.RedirectPermanent(string.Format("/{0}/default.aspx", countryCode.ToLower()));
             }
-            //else
-            //{
-            //    if (HttpContext.Current.Request.FilePath != "/")
-            //    {
-            //        var reqUrl = HttpContext.Current.Request.FilePath;
-            //        if (HttpContext.Current.Request.FilePath.StartsWith("/"))
-            //        {
-            //            reqUrl = HttpContext.Current.Request.FilePath.Substring(1,HttpContext.Current.Request.FilePath.Length-1);
-            //        }
-
-            //        HttpContext.Current.Response.RedirectPermanent(string.Format("/{0}/{1}", countryCode.ToLower(), reqUrl));
-            //        return;
-            //    }
-            //}
 
             /* set the default cutlure */
             Utility.SetCountry(bbaCulture);

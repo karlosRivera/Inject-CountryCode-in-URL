@@ -7,7 +7,7 @@ namespace InjectCountryCodeInURL
 {
     public static class SiteGlobalization
     {
-        static Dictionary<string, SiteCulture> BBaCulture = new Dictionary<string, SiteCulture>()
+        static Dictionary<string, SiteCulture> SiteCultures = new Dictionary<string, SiteCulture>()
         {
             { "DE", new SiteCulture {CultureInfo="de-DE", UICultureInfo="de-DE", TwoDigitISORegionCode="DE",ThreeDigitISORegionCode="DEU",Visible=true}},
             { "ES", new SiteCulture {CultureInfo="es-ES", UICultureInfo="es-ES", TwoDigitISORegionCode="ES",ThreeDigitISORegionCode="ESP",Visible=true}},
@@ -22,7 +22,7 @@ namespace InjectCountryCodeInURL
         {
             get
             {
-                return BBaCulture;
+                return SiteCultures;
             }
         }
 
