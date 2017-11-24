@@ -72,6 +72,7 @@
     </form>
 
     <script>
+        /*
         $(document).ready(function () {
             var url = window.location.pathname;
             var segments = url.split('/');
@@ -83,7 +84,7 @@
                 $(value).attr("href", "/" + countrycode + (href == '/' ? '' : href));
                 href = $(value).attr("href");
             });
-        });
+        });*/
     </script>
 </body>
 </html>
