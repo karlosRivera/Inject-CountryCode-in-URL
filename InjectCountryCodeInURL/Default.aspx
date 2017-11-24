@@ -10,25 +10,7 @@
     <asp:Button ID="Button1" runat="server" Text="Button" />
 
 
-    <script>
 
-        $(document).ready(function () {
-            $("[id$=Button1]").click(function () {
-                var url = window.location.pathname;
-                var segments = url.split('/');
-                var countrycode = segments[1];
-
-                var hyperLink = $("a:not(.noclass)");
-                $.each(hyperLink, function (index, value) {
-                    var href = $(value).attr("href");
-                    $(value).attr("href", "/" + countrycode + href);
-                    href = $(value).attr("href");
-                });
-
-                return false;
-            });
-        });
-    </script>
 </asp:Content>
 
 

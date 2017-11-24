@@ -70,5 +70,20 @@
         </div>
 
     </form>
+
+    <script>
+        $(document).ready(function () {
+            var url = window.location.pathname;
+            var segments = url.split('/');
+            var countrycode = segments[1];
+
+            var hyperLink = $("a:not(.noclass)");
+            $.each(hyperLink, function (index, value) {
+                var href = $(value).attr("href");
+                $(value).attr("href", "/" + countrycode + (href == '/' ? '' : href));
+                href = $(value).attr("href");
+            });
+        });
+    </script>
 </body>
 </html>
