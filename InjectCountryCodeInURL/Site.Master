@@ -73,6 +73,10 @@
 
     <script>
         /*
+
+        this below js code will inject country code with all the hyperlinks 
+        in current page and will take country code from browser address bar url.
+
         $(document).ready(function () {
             var url = window.location.pathname;
             var segments = url.split('/');
