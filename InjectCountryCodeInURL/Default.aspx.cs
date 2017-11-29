@@ -14,6 +14,7 @@ namespace InjectCountryCodeInURL
             string countrycode = Page.RouteData.Values["countrycode"] as string;
 
             var basePath = String.Format("{0}{1}", Request.ApplicationPath, string.IsNullOrEmpty(Request.ApplicationPath) || !Request.ApplicationPath.EndsWith("/") ? "/" : "");
+
         }
     }
 }
