@@ -18,6 +18,24 @@
     <%--<webopt:bundlereference runat="server" path="~/Content/css" />--%>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
+    <style >
+        .gCountryFlag {
+    margin-left: 0;
+    padding-left: 0;
+
+}
+
+        ul li {
+            list-style: none;
+}
+
+        .gCountryFlag li {
+                
+        float:left;
+    display: inline-block;
+    margin:5px;
+        }
+    </style>
 </head>
 <body>
     <form runat="server">
@@ -65,7 +83,40 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <div id="footer_column6" class="col-md-12">
+                    <ul>
+                        <li class="countryTitle">Other Country</li>
+                        <li>
+
+                            <ul id="flag" class="gCountryFlag">
+
+                                <li>
+                                    <a href="/de/default.aspx" title="BBA Reman DE" class="noclass">
+                                        <img src="/images/de.gif" alt="BBA Reman - DE Flag">
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/fr/default.aspx" title="BBA Reman FR" class="noclass">
+                                        <img src="/images/fr.gif" alt="BBA Reman - FR Flag">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/gb/default.aspx" title="BBA Reman GB" class="noclass">
+                                        <img src="/images/gb.gif" alt="BBA Reman - GB Flag">
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/us/default.aspx" title="BBA Reman US" class="noclass">
+                                        <img src="/images/us.gif" alt="BBA Reman - US Flag">
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </footer>
         </div>
 
@@ -76,19 +127,20 @@
 
         this below js code will inject country code with all the hyperlinks 
         in current page and will take country code from browser address bar url.
+        */
 
         $(document).ready(function () {
             var url = window.location.pathname;
             var segments = url.split('/');
             var countrycode = segments[1];
 
-            var hyperLink = $("a:not(.noclass)");
+            var hyperLink = $("a:not('.noclass')");
             $.each(hyperLink, function (index, value) {
                 var href = $(value).attr("href");
                 $(value).attr("href", "/" + countrycode + (href == '/' ? '' : href));
                 href = $(value).attr("href");
             });
-        });*/
+        });
     </script>
 </body>
 </html>
