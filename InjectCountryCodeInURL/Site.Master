@@ -18,23 +18,30 @@
     <%--<webopt:bundlereference runat="server" path="~/Content/css" />--%>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
-    <style >
-        .gCountryFlag {
-    margin-left: 0;
-    padding-left: 0;
+    <style>
+    .gCountryFlag {
+        margin-left: 0;
+        padding-left: 0;
+    }
 
-}
+    ul li {
+        list-style: none;
 
-        ul li {
-            list-style: none;
-}
+    }
 
-        .gCountryFlag li {
-                
-        float:left;
-    display: inline-block;
-    margin:5px;
-        }
+    .navbar-collapse ul li:last-child {
+         float: right;
+         display: inline-block;
+    }
+
+    .gCountryFlag li {
+        float: left;
+        display: inline-block;
+        margin: 5px;
+    }
+
+
+
     </style>
 </head>
 <body>
@@ -74,15 +81,22 @@
                         <li><a runat="server" href="/">Home</a></li>
                         <li><a runat="server" href="/About.aspx">About</a></li>
                         <li><a runat="server" href="/Contact.aspx">Contact</a></li>
+                        <li>
+                            <div class="flagChangeCountry">
+                                <asp:Image CssClass="topFlag" runat="server" ID="currentCultureFlagImage" />
+                                <%--<asp:Literal runat="server" Text="<%$Resources:LocalisedText, ChangeCountryText %>" />--%>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
+
             </asp:ContentPlaceHolder>
             <hr />
-            <footer>
+            <footer class="navbar-fixed-bottom">
                 <div id="footer_column6" class="col-md-12">
                     <ul>
                         <li class="countryTitle">Other Country</li>

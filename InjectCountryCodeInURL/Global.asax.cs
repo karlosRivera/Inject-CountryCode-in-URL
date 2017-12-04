@@ -6,6 +6,8 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using System.Threading;
+using System.Globalization;
 
 namespace InjectCountryCodeInURL
 {
@@ -20,6 +22,24 @@ namespace InjectCountryCodeInURL
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+
+        protected void Application_AcquireRequestState(object sender, EventArgs e)
+        {
+            //string cookieCountry3Char = Utility.GetCookieValue();
+            //if (string.IsNullOrEmpty(cookieCountry3Char))
+            //{
+            //    Utility.SaveCountryCookie(_DEFAULTCOUNTRYCODETHREECHAR);
+            //    cookieCountry3Char = _DEFAULTCOUNTRYCODETHREECHAR;
+            //}
+
+            //SiteCulture bbaCulture = Utility.GetCulture(cookieCountry3Char);
+
+            //if (bbaCulture == null) bbaCulture = SiteGlobalization.DefaultCulture;
+
+            //Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(bbaCulture.CultureInfo);
+            //Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(bbaCulture.UICultureInfo);
+
         }
 
         protected void Application_BeginRequest(Object sender, EventArgs e)

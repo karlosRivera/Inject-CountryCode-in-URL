@@ -148,5 +148,15 @@ namespace InjectCountryCodeInURL
             }
             catch { }
         }
+
+        public static RegionInfo ResolveCountry()
+        {
+            CultureInfo culture = System.Threading.Thread.CurrentThread.CurrentCulture;
+            if (culture != null)
+                return new RegionInfo(culture.LCID);
+
+            return new RegionInfo(2057);
+        }
+
     }
 }

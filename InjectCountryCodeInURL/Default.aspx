@@ -9,7 +9,9 @@
 
     <asp:Button ID="Button1" runat="server" Text="Button" />
 
+<br /><br />
 
+<asp:label id="lbltext" runat="server"><asp:Literal runat="server" Text="<%$Resources:LocalisedText, Welcome %>" /></asp:label>
 
 </asp:Content>
 

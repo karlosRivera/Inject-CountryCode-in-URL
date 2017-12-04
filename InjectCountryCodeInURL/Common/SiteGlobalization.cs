@@ -34,6 +34,7 @@ namespace InjectCountryCodeInURL
                 return new SiteCulture { CultureInfo = "en-GB", UICultureInfo = "en-GB", TwoDigitISORegionCode = "GB", ThreeDigitISORegionCode = "GBR", Visible = true };
             }
         }
+
     }
 
     public class SiteCulture

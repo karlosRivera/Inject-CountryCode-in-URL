@@ -11,6 +11,8 @@ namespace InjectCountryCodeInURL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            currentCultureFlagImage.ImageUrl = string.Format("/images/{0}.gif", Utility.ResolveCountry().TwoLetterISORegionName.ToLower());
+            currentCultureFlagImage.AlternateText = System.Threading.Thread.CurrentThread.CurrentCulture.DisplayName;
 
         }
     }
