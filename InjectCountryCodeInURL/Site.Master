@@ -19,25 +19,14 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
     <style>
-    .gCountryFlag {
-        margin-left: 0;
-        padding-left: 0;
-    }
+/*
 
-    ul li {
-        list-style: none;
-
-    }
 
 
 
     .nav .navbar-collapse { width: 100%; }
 
-    .gCountryFlag li {
-        float: left;
-        display: inline-block;
-        margin: 5px;
-    }
+
 
     .navbar-collapse ul li:last-child { float: right; }
 
@@ -46,7 +35,48 @@
         clear:left;
         float: right;
     }
+*/
 
+        ul li {
+            list-style: none;
+        }
+
+        .navbar ul {
+            border: 1px solid red;
+            padding: 0;
+            margin: 50px;
+        }
+
+        .navbar ul:after {
+            /* clearfix */
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .navbar li {
+            float: left; /* all li items */
+            padding: 0;
+            margin: 0;
+            border: 1px solid green;
+            list-style: none;
+        }
+
+            .navbar li:last-child {
+                float: right; /* last li item */
+            }
+
+
+        .gCountryFlag {
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+            .gCountryFlag li {
+                float: left;
+                display: inline-block;
+                margin: 5px;
+            }
     </style>
 </head>
 <body>
@@ -159,6 +189,17 @@
                 $(value).attr("href", "/" + countrycode + (href == '/' ? '' : href));
                 href = $(value).attr("href");
             });
+
+            /*
+            this below code can give me url after from country code which i tought to use to get main page url after from country which i though would append with flag images url
+
+            var url = 'http://localhost:8800/gb/About.aspx?id=2&vref=3';
+            var arr = url.split(/\/[a-z]{2}\//);
+
+            console.log(arr[0]); //=> http://localhost:8800
+            console.log(arr[1]); //=> About.aspx?id=2&vref=3
+
+            */
         });
     </script>
 </body>
